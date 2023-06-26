@@ -1,16 +1,17 @@
 <script>
     export default {
         props:{
-            Movies : Object
+            MyMovies : Object
         }
 
     }
 </script>
 <template >
-    <div>
-        we
+    <div class="cards movie-card">
+        <h1></h1>
     </div>
 </template>
-<style lang="">
+<style lang="scss">
+
     
 </style>

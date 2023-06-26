@@ -19,7 +19,7 @@
         <li>we</li>
         <li>we</li>
         <li>we</li>
-        <li><AppMovieCards/></li>
+        <li><AppMovieCards /></li>
     </ul>
   </div>
 </template>
