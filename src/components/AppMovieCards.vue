@@ -21,21 +21,23 @@
     
 </script>
 <template >
-    <div class=" movie-card d-flex flex-column justify-content-between" :style="{'background-image':`url(${store.bkg_img_path}${MyMovies.poster_path})`}">
+    <div class=" movie-card d-flex flex-column justify-content-between position-relative" :style="{'background-image':`url(${store.bkg_img_path}${MyMovies.poster_path})`}">
         <div class="hover-bkg">
-            <div>
+            <div class="main-card">
                 <h1>{{ MyMovies.name || MyMovies.title }}</h1>
                 <h5>{{ MyMovies.original_name || MyMovies.original_title }}</h5>
-                
-                <span class="flag " :style="{'background-image':`url('../../node_modules/flagpack-core/svg/s/${MyMovies.original_language.toUpperCase()}.svg'`}">{{ MyMovies.original_language }}
-                    <!-- <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" :alt="''"> -->
-                </span>
             </div>
             <div>
                 <p class="">{{ MyMovies.overview }}</p>
             </div>
-            <div>
+            <div class="mb-3">
                 <span class="mt-3" v-for="vote in getVote()" :key="vote"><i class="fa-solid fa-star" style="color: #FDCF00;"></i></span>
+            </div>
+            <div class=" justify-content-start ps-4 country">
+                <span class="me-3">country: </span>
+                <span class="flag " :style="{'background-image':`url('../../node_modules/flagpack-core/svg/s/${MyMovies.original_language.toUpperCase()}.svg'`,'opacity':'0.8'}">{{ MyMovies.original_language }}
+                    <!-- <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" :alt="''"> -->
+                </span>
             </div>
         </div>
     </div>
@@ -65,15 +67,27 @@
    }
 
    .flag{
-    font-size: 20px;
+    font-size: 15px;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0.1rem 0.8rem;
     color: rgb(0, 0, 0);
     -webkit-text-stroke-width: 0.2px;
-    -webkit-text-stroke-color: rgb(255, 255, 255);
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    background-color: white;
+    border-radius: 5rem;
+    
+   
    }
-  
+
+}
+.country{
+ display: none;
+}
+
+
+.movie-card:hover .country{
+    display: flex;
 }
 
 .movie-card p{
