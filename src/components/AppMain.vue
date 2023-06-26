@@ -1,9 +1,13 @@
 <script>
-   
+   import {store} from '../store';
+   import AppMovieCards from './AppMovieCards.vue';
   export default {
+    components:{
+        AppMovieCards,
+    },
     data() {
         return {
-            
+          store  
            
         }
     },
@@ -15,6 +19,7 @@
         <li>we</li>
         <li>we</li>
         <li>we</li>
+        <li><AppMovieCards/></li>
     </ul>
   </div>
 </template>
