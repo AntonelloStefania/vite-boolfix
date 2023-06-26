@@ -4,4 +4,5 @@ export const store = reactive({
     movieList: [],
     movieSearch: '',
     name_search: '&query=',
+    bkg_img_path: 'https://image.tmdb.org/t/p/w342/',
 })
