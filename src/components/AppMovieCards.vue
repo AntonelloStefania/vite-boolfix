@@ -25,16 +25,17 @@
         <div class="hover-bkg">
             <div>
                 <h1>{{ MyMovies.name || MyMovies.title }}</h1>
-                <h6>{{ MyMovies.original_name || MyMovies.original_title }}</h6>
-                <span>{{ MyMovies.original_language }}
-                    <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" :alt=" MyMovies.name">
+                <h5>{{ MyMovies.original_name || MyMovies.original_title }}</h5>
+                
+                <span class="flag " :style="{'background-image':`url('../../node_modules/flagpack-core/svg/s/${MyMovies.original_language.toUpperCase()}.svg'`}">{{ MyMovies.original_language }}
+                    <!-- <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" :alt="''"> -->
                 </span>
             </div>
             <div>
                 <p class="">{{ MyMovies.overview }}</p>
             </div>
             <div>
-                <span v-for="vote in getVote()" :key="vote"><i class="fa-solid fa-star" style="color: #FDCF00;"></i></span>
+                <span class="mt-3" v-for="vote in getVote()" :key="vote"><i class="fa-solid fa-star" style="color: #FDCF00;"></i></span>
             </div>
         </div>
     </div>
@@ -62,6 +63,17 @@
     -webkit-text-stroke-width: 0.1px;
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.623);
    }
+
+   .flag{
+    font-size: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0.1rem 0.8rem;
+    color: rgb(0, 0, 0);
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+   }
+  
 }
 
 .movie-card p{
