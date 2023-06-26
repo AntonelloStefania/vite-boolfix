@@ -26,7 +26,7 @@
             <h1>{{ MyMovies.name || MyMovies.title }}</h1>
             <h6>{{ MyMovies.original_name || MyMovies.original_title }}</h6>
             <span>{{ MyMovies.original_language }}
-                <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" alt="">
+                <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" :alt=" MyMovies.name">
             </span>
         </div>
         <div>
@@ -48,6 +48,7 @@
     text-align: center;
     padding: 0.275rem;
     font-weight: bold;
+    background-color: rgb(38, 38, 38);
    h1{ 
     font-size: 22px;
    }
