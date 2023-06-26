@@ -35,6 +35,7 @@ import { store } from '../store';
   left: 0;
   right: 0;
   z-index: 5;
+  min-width: 450px;
   h1{
     color: $red_color;
     font-size: 70px;

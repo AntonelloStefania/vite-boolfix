@@ -44,17 +44,18 @@
 @use '../styles/partials/variables' as *;
 
 .movie-card{
-    width: 185px;
-    height: 300px;
+    width: 342px;
+    height: 500px;
     overflow-y: auto;
     color: white;
     text-align: center;
     font-weight: bold;
     background-color: rgb(38, 38, 38);
     cursor:pointer;
+    border: 4px solid black;
   
     h1{ 
-    font-size: 22px;
+    font-size: 32px;
     font-weight: bolder;
     color: $red_color;
     padding: 0.275rem;
@@ -66,6 +67,7 @@
 .movie-card p{
     display: none;
     padding: 0.275rem;
+    font-size: 20px;
 }
 
 .movie-card:hover p{
@@ -73,14 +75,15 @@
 }
 
 img{
-    width: 12px;
-    height: 12px;
+    width: 20px;
+    height: 16px;
 }
 
 .hover-bkg{
     background-color: rgba(0, 0, 0, 0.678);
-    
 }
 
-
+.movie-card:hover .hover-bkg{
+    height: 100vh;
+}
 </style>
