@@ -14,7 +14,7 @@
   }
 </script>
 <template >
-  <div class="container">
+  <div class="container card-main">
     <div class="row">
         <div class="col">
             <ul class="d-flex flex-wrap justify-content-center ">
@@ -27,6 +27,10 @@
 </template>
 <style lang="scss" scoped>
 @use '../styles/generals.scss' as*;
-@use '../styles/partials/variables' as *
+@use '../styles/partials/variables' as *;
+
+.card-main{
+  margin-top: 10rem;
+}
   
 </style>
