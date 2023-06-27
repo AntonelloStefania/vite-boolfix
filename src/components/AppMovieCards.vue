@@ -13,9 +13,15 @@
             let vote = Math.ceil(this.MyMovies.vote_average / 2)
             console.log(vote)
             return vote
+         },
+         getEmptyStar(){
+            let empty_star = 5 - (Math.ceil(this.MyMovies.vote_average / 2))
+            return empty_star
          }
         },mounted(){
             this.getVote()
+            this.getEmptyStar()
+            
         }
     }
     
@@ -32,6 +38,7 @@
             </div>
             <div class="mb-3">
                 <span class="mt-3" v-for="vote in getVote()" :key="vote"><i class="fa-solid fa-star" style="color: #FDCF00;"></i></span>
+                <span v-for="empty_star in getEmptyStar()" :key="empty_star"><i class="fa-regular fa-star" style="color: #FDCF00;"></i></span>
             </div>
             <div class=" justify-content-start ps-4 country">
                 <span class="me-3">country: </span>
