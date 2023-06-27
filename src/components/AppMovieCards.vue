@@ -42,8 +42,8 @@
             </div>
             <div class=" justify-content-start ps-4 country">
                 <span class="me-3">country: </span>
-                <span class="flag " :style="{'background-image':`url('../../node_modules/flagpack-core/svg/s/${MyMovies.original_language.toUpperCase()}.svg'`,'opacity':'0.8'}">{{ MyMovies.original_language }}
-                    <!-- <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" :alt="''"> -->
+                <span class="flag " >{{ MyMovies.original_language }}
+                    <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" :alt="''">
                 </span>
             </div>
         </div>
@@ -83,7 +83,7 @@
     color: rgb(0, 0, 0);
     -webkit-text-stroke-width: 0.2px;
     -webkit-text-stroke-color: rgb(0, 0, 0);
-    background-color: white;
+    background-color: rgba(121, 121, 121, 0.938);
     border-radius: 5rem;
     
    
@@ -116,10 +116,11 @@ img{
 
 .hover-bkg{
     background-color: rgba(0, 0, 0, 0.678);
+    
 }
 
 .movie-card:hover .hover-bkg{
-    height: 100vh;
+    height:5000px;
     padding-bottom: 1rem;
 }
 </style>

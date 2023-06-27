@@ -3,12 +3,14 @@
   import AppHeader from './components/AppHeader.vue';
   import AppMain from './components/AppMain.vue';
   import AppMovieCards from './components/AppMovieCards.vue';
+  import AppFilters from './components/AppFilters.vue';
   import { store } from './store';
   export default {
     components:{
       AppHeader,
       AppMain,
-      AppMovieCards
+      AppMovieCards,
+      AppFilters,
     },
     data(){
       return{
@@ -33,6 +35,7 @@
 <template >
   <div>
     <AppHeader @search="searchMovie()"/>
+    <AppFilters />
     <AppMain/>
   </div>
 </template>
