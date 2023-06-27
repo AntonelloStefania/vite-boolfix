@@ -11,7 +11,6 @@
         },methods:{
             getVote(){
             let vote = Math.ceil(this.MyMovies.vote_average / 2)
-            console.log(vote)
             return vote
          },
          getEmptyStar(){

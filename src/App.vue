@@ -14,17 +14,25 @@
       return{
         store
       }
+    },mounted() {
+    
     },methods: {
-      searchMovie(){
-        if(store.movieList !== ''){
-          let filteredUrl =store.movieUrl + store.name_search + store.movieSearch
-          console.log(filteredUrl)  
-          axios.get(filteredUrl).then((response)=> {
-            store.movieList = response.data.results
-            console.log(store.movieList)
-        })  
-        }
-      },
+       searchMovie(){
+         if(store.movieList !== ''){
+           let filteredUrl =store.movieUrl + store.name_search + store.movieSearch
+           axios.get(filteredUrl).then((response)=> {
+             store.movieList = response.data.results
+             //console.log(store.movieList[0].genre_ids) //gamechanger FORSE!!
+
+          if (store.movieList.length > 0 && store.genreValue !== '') {
+            store.movieList = store.movieList.filter((movie) =>
+              movie.genre_ids.includes(store.genreValue)
+            );
+          }
+         })  
+         } 
+       },
+      
     }
   }
 </script>

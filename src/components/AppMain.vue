@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col">
             <ul class="d-flex flex-wrap justify-content-center ">
-                <li class="col-auto m-2" v-for="(movie, index) in store.movieList" :key="index"><AppMovieCards  /></li>
+                <li class="col-auto m-2" v-for="(movie, index) in store.movieList" :key="index"><AppMovieCards :MyMovies="movie" /></li>
             </ul>
         </div>
 
