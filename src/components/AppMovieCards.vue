@@ -56,6 +56,8 @@
     background-color: rgb(38, 38, 38);
     cursor:pointer;
     border: 4px solid black;
+    background-repeat: no-repeat;
+    background-position: bottom;
   
     h1{ 
     font-size: 32px;
@@ -111,5 +113,6 @@ img{
 
 .movie-card:hover .hover-bkg{
     height: 100vh;
+    padding-bottom: 1rem;
 }
 </style>
