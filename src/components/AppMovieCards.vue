@@ -21,13 +21,12 @@
         },mounted(){
             this.getVote()
             this.getEmptyStar()
-            
         }
     }
     
 </script>
 <template >
-    <div class=" movie-card d-flex flex-column justify-content-between position-relative" :style="{'background-image':`url(${store.bkg_img_path}${MyMovies.poster_path})`}">
+    <div class=" movie-card d-flex flex-column justify-content-between" :style="{'background-image':`url(${store.bkg_img_path}${MyMovies.poster_path})`}">
         <div class="hover-bkg">
             <div class="main-card">
                 <h1>{{ MyMovies.name || MyMovies.title }}</h1>
