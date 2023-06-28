@@ -1,6 +1,12 @@
 <script>
-    import {store} from '../store'
+import {store} from '../store'
+import axios from 'axios'
+import AppInfoCard from './AppInfoCard.vue'
+
     export default {
+        components:{
+            AppInfoCard,
+        },
         props:{
             MyMovies : Object
         },
@@ -12,10 +18,20 @@
             getVote(){
             let vote = Math.ceil(this.MyMovies.vote_average / 2)
             return vote
-         },
+        },
+         getCompleteActorsApi(){
+            store.actualMovieId = this.MyMovies.id
+            store.displayCast= true;
+            store.completeActorsApi = `${store.actorApiFirst}${store.actualMovieId}${store.actorApiEnd}`
+            axios.get(store.completeActorsApi).then((res)=>{
+                   store.actorsArray = res.data.cast
+               })
+        },
          getEmptyStar(){
             let empty_star = 5 - (Math.ceil(this.MyMovies.vote_average / 2))
             return empty_star
+         },getMovieId(){
+            store.actualMovieId = this.MyMovies.id
          }
         },mounted(){
             this.getVote()
@@ -31,7 +47,7 @@
                 <h1>{{ MyMovies.name || MyMovies.title }}</h1>
                 <h5>{{ MyMovies.original_name || MyMovies.original_title }}</h5>
             </div>
-            <div>
+            <div class="overview">
                 <p class="">{{ MyMovies.overview }}</p>
             </div>
             <div class="mb-3">
@@ -44,6 +60,12 @@
                     <img  :src="'../../node_modules/flagpack-core/svg/s/'+ MyMovies.original_language.toUpperCase() +'.svg'" :alt="''">
                 </span>
             </div>
+            <div class="info-btn mt-2 d-flex justify-content-end mb-2 me-5">
+                <button class="btn btn-outline-danger" data-toggle="modal" @click="getCompleteActorsApi()">
+                    <span>cast</span>
+                </button>
+            </div>
+           
         </div>
     </div>
 </template>
@@ -54,7 +76,6 @@
 .movie-card{
     width: 342px;
     height: 500px;
-    overflow-y: auto;
     color: white;
     text-align: center;
     font-weight: bold;
@@ -63,6 +84,9 @@
     border: 4px solid black;
     background-repeat: no-repeat;
     background-position: bottom;
+    position: relative;
+    overflow-y: auto;
+    
   
     h1{ 
     font-size: 32px;
@@ -83,9 +107,12 @@
     -webkit-text-stroke-color: rgb(0, 0, 0);
     background-color: rgba(121, 121, 121, 0.938);
     border-radius: 5rem;
-    
-   
    }
+
+//    .overview{
+//     height: 250px;
+//     overflow-y: auto;
+//    }
 
 }
 .country{
@@ -121,4 +148,6 @@ img{
     height:5000px;
     padding-bottom: 1rem;
 }
+
+
 </style>
