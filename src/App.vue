@@ -15,6 +15,12 @@
         store
       }
     },mounted() {
+      //faccio comparire a schermo film randomici (trending API call)
+      axios.get(store.randomMovieUrl).then((response)=>{
+        store.movieList = response.data.results
+        console.log(response.data.results)
+      })
+      // this.searchMovieByGenre()
     
     },methods: {
        searchMovie(){
@@ -23,23 +29,22 @@
            axios.get(filteredUrl).then((response)=> {
              store.movieList = response.data.results
              //console.log(store.movieList[0].genre_ids) //gamechanger FORSE!!
-
-          if (store.movieList.length > 0 && store.genreValue !== '') {
-            store.movieList = store.movieList.filter((movie) =>
-              movie.genre_ids.includes(store.genreValue)
-            );
-          }
-         })  
-         } 
-       },
-      
+          })  
+       } 
+     },
+     searchMovieByGenre(){
+      if(store.movieList.length > 0){
+        store.movieList = store.movieList.filter((elem) =>
+          elem.genre_ids.includes(store.genreValue))
+      }
+     }
     }
   }
 </script>
 <template >
   <div>
       <AppHeader @search="searchMovie()"/>
-      <AppMain/>
+      <AppMain @genChange="searchMovieByGenre()"/>
   </div>
 </template>
 <style lang="scss">

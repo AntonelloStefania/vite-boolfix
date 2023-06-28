@@ -16,7 +16,7 @@
           store.filterList = response.data.genres
         }
       )
-   }
+   }, 
   }
          
       
@@ -27,6 +27,7 @@
         <div class="row">
             <div class="col-auto">
                 <select name="" id="" v-model="store.genreValue" @change="$emit('genChange')">
+                    <option value="" selected></option>
                     <option v-for="(genre, index) in store.filterList" :key="index" :value="genre.id">{{genre.name}}</option>
                 </select>
             </div>
@@ -39,7 +40,6 @@
                 <li class="col-auto m-2" v-for="(movie, index) in store.movieList" :key="index"><AppMovieCards :MyMovies="movie" /></li>
             </ul>
         </div>
-
     </div>
   </div>
 </template>
