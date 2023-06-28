@@ -61,7 +61,7 @@ import AppInfoCard from './AppInfoCard.vue'
                 </span>
             </div>
             <div class="info-btn mt-2 d-flex justify-content-end mb-2 me-5">
-                <button class="btn btn-outline-danger" data-toggle="modal" @click="getCompleteActorsApi()">
+                <button class="btn cast-button" data-toggle="modal" @click="getCompleteActorsApi()">
                     <span>cast</span>
                 </button>
             </div>
@@ -109,11 +109,6 @@ import AppInfoCard from './AppInfoCard.vue'
     border-radius: 5rem;
    }
 
-//    .overview{
-//     height: 250px;
-//     overflow-y: auto;
-//    }
-
 }
 .country{
  display: none;
@@ -141,12 +136,22 @@ img{
 
 .hover-bkg{
     background-color: rgba(0, 0, 0, 0.678);
-    
 }
 
 .movie-card:hover .hover-bkg{
     height:5000px;
     padding-bottom: 1rem;
+}
+
+.cast-button{
+    background-color: $red_color;
+    color: white;
+    border:1px solid rgb(255, 255, 255);
+}
+
+.cast-button:hover{
+    background-color: rgb(136, 9, 9);
+    border: 1px solid white;
 }
 
 

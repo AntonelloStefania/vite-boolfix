@@ -27,8 +27,6 @@
   }
 </script> 
 <template >
-  <div class="reladive">
-
     <div class="container filter-container">
          <div class="row justify-content-center align-items-center">
              <div class="col-auto" >
@@ -60,15 +58,12 @@
              </li>
          </ul>
          <div class="d-flex justify-content-center pt-1">
-           <button class="btn btn-danger" @click="closeInfo()">close</button>
+           <button class="btn cast-button" @click="closeInfo()">close</button>
          </div>
        </div>
  
      </div>
    </div>
-  </div>
-
-
 </template>
 <style lang="scss" scoped>
 @use '../styles/generals.scss' as*;
@@ -95,9 +90,7 @@
     }
 }
 
-.reladive{
-  position: relative
-}
+
 
 .info-container{
   width: 100vw;
@@ -115,7 +108,19 @@
     height: 550px;
     background-color: #2B2A2A;
     color: white;
+    box-shadow: 0 0 20px 5px black;
   }
+}
+
+.cast-button{
+    background-color: $red_color;
+    color: white;
+    border:1px solid rgb(255, 255, 255);
+}
+
+.cast-button:hover{
+    background-color: rgb(136, 9, 9);
+    border: 1px solid white;
 }
 
 
