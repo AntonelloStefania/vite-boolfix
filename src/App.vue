@@ -37,6 +37,11 @@
         store.movieList = store.movieList.filter((elem) =>
           elem.genre_ids.includes(store.genreValue))
       }
+     },
+     resetMovieList(){
+      axios.get(store.randomMovieUrl).then((response)=>{
+        store.movieList = response.data.results
+      })
      }
     }
   }
@@ -44,7 +49,7 @@
 <template >
   <div>
       <AppHeader @search="searchMovie()"/>
-      <AppMain @genChange="searchMovieByGenre()"/>
+      <AppMain @genChange="searchMovieByGenre()" @reset="resetMovieList()"/>
   </div>
 </template>
 <style lang="scss">
